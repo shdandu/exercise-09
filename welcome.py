@@ -1,7 +1,9 @@
-"""A welcoming test program to start COMP110"""
 
-__author__ = "01234567"
 
-print("Welcome to COMP110!")
-print("You are in for a fun adventure into programming!")
-print("<3, the COMP110 Team!")
+def check_first_letter(word:str,letter:str)->str:
+    if len(letter) != 1:
+        return "letter's argumnt should be one character!"
+    elif word[0]==letter:
+        return "match!"
+    else
+        return "no match!"
