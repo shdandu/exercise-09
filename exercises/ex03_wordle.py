@@ -6,15 +6,16 @@ __author__ = "730705811"
 def main(secret: str) -> None:
     """Entrypoint of the program"""
     turn: int = 1
-    while turn <= 6:
+    won: bool = False
+    while turn <= 6 and not won:
         # Provides output for each turn
         print(f"=== Turn {turn}/6 ===")
         guess = input_guess(secret_word_len=len(secret))
         print(emojified(secret_word=secret, guess=guess))
         if secret == guess:
+            won = True
             print(f"You won in {turn}/6 turns!")
-            quit()
-        elif turn == 6:
+        if turn == 6:
             print("X/6 - Sorry, try again tomorrow!")
         turn += 1
 
@@ -55,7 +56,7 @@ def emojified(secret_word: str, guess: str) -> str:
             wordle += YELLOW_BOX
         else:
             wordle += WHITE_BOX
-        p += 1
+        idx += 1
     return wordle
 
 
