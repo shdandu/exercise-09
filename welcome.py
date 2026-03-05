@@ -1,3 +1,4 @@
+# List practice
 rsvp_list: list[str] = ["Enrico", "Yun"]
 
 
@@ -21,3 +22,42 @@ def has_rsvped(friend: str) -> bool:
 
 
 print(has_rsvped("Isapellet"))
+
+
+# Dictionary practice
+ice_cream: dict[str, int] = {
+    "chocolate": 12,
+    "vanilla": 8,
+    "strawberry": 4,
+}
+ice_cream["vanilla"] += 110
+ice_cream["mint"] = 3
+print(ice_cream)
+
+if "mint" in ice_cream:
+    print(ice_cream["mint"])
+
+ice_cream.pop("vanilla")
+print(ice_cream)
+
+"""CQ01"""
+vend: dict[str, str] = {
+    "A1": "Oreos",
+    "A2": "Lays",
+    "B1": "Coke",
+    "B2": "7up",
+}
+
+for prod in vend:
+    print(prod)
+
+flavors: set[str] = {"Orange", "Cherry", "Lime"}
+
+
+def buy(vm: dict[str, str]) -> str:
+    for prod in vm:
+        return prod
+    return "Other"
+
+
+print(buy(vm=vend))
