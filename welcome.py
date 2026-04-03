@@ -61,3 +61,22 @@ def buy(vm: dict[str, str]) -> str:
 
 
 print(buy(vm=vend))
+
+
+def bin_len(words: list[str]) -> dict[int, set[str]]:
+    result: dict[int, set[str]] = {}
+    for w in words:
+        word_len = len(w)
+        if word_len in result:
+            result[word_len].add(w)
+        else:
+            result[word_len] = {w}
+    return result
+
+
+def test_bin_len_empty() -> None:
+    assert bin_len([]) == {}
+
+
+def test_bin_len_diff_lens() -> None:
+    assert bin_len(["the", "lecture"]) == {3: {"the"}, 7: {"lecture"}}

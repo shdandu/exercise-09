@@ -1,10 +1,10 @@
-"""Dictionary practice"""
+"""Dictionary practice."""
 
 __author__ = "730705811"
 
 
 def invert(dictionary: dict[str, str]) -> dict[str, str]:
-    # Flips key and value
+    """Flip key and value."""
     new_dictionary: dict[str, str] = {}
     for key in dictionary:
         value = dictionary[key]
@@ -15,7 +15,7 @@ def invert(dictionary: dict[str, str]) -> dict[str, str]:
 
 
 def favorite_color(dictionary: dict[str, str]) -> str:
-    # Returns name of most popular color
+    """Return name of most popular color."""
     color_count: dict[str, int] = {}
     for key in dictionary:
         value = dictionary[key]
@@ -23,15 +23,17 @@ def favorite_color(dictionary: dict[str, str]) -> str:
             color_count[value] += 1
         else:
             color_count[value] = 1
+    popular_color: str = ""
+    max_count: int = 0
     for key in color_count:
-        popular_color: str = 0
-        if color_count[key] > popular_color:
+        if color_count[key] > max_count:
+            max_count = color_count[key]
             popular_color = key
     return popular_color
 
 
 def count(value_list: list[str]) -> dict[str, int]:
-    # Number of times smt appears in dictionary
+    """Number of times smt appears in dictionary."""
     new: dict[str, int] = {}
     for value in value_list:
         if value in new:
@@ -42,11 +44,11 @@ def count(value_list: list[str]) -> dict[str, int]:
 
 
 def alphabetizer(random: list[str]) -> dict[str, list[str]]:
-    # Puts together words that start with same alphabet
+    """Put together words that start with same alphabet."""
     alphabetized: dict[str, list[str]] = {}
     for value in random:
         first_letter: str = value[0].lower()
-        if value.isalpha() == True:
+        if value.isalpha():
             if first_letter in alphabetized:
                 alphabetized[first_letter].append(value)
             else:
@@ -57,7 +59,7 @@ def alphabetizer(random: list[str]) -> dict[str, list[str]]:
 def update_attendance(
     attendance_log: dict[str, list[str]], day: str, student: str
 ) -> None:
-    # Updates attendance
+    """Update attendance."""
     if day in attendance_log:
         attendance_log[day].append(student)
     else:
