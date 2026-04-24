@@ -51,7 +51,10 @@ def convert_columns_to_int(
 
     return data_converted
 
+
 """These are the functions we wrote/will write in class!"""
+
+
 def read_csv_rows(filename: str) -> list[dict[str, str]]:
     """Read the rows of a CSV into a 'table'."""
     result: list[dict[str, str]] = []
@@ -92,3 +95,83 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
         result[column] = column_values(row_table, column)
 
     return result
+
+
+def head(og_data: dict[str, list[str]], rows: int) -> dict[str, list[str]]:
+    """Return a new dictionary with only the first few rows."""
+    head: dict[str, list[str]] = {}
+
+    for column in og_data:
+        values = []
+
+        count = 0
+        for x in og_data[column]:
+            if count < rows:
+                values.append(x)
+                count += 1
+
+        head[column] = values
+
+    return head
+
+
+def select(og_data: dict[str, list[str]], columns: list[str]) -> dict[str, list[str]]:
+    """Return a new dictionary with only the wanted columns."""
+    filtered: dict[str, list[str]] = {}
+
+    for column in columns:
+        filtered[column] = og_data[column]
+
+    return filtered
+
+
+def concat(
+    first_dict: dict[str, list[str]], second_dict: dict[str, list[str]]
+) -> dict[str, list[str]]:
+    """Put together values from two dictionaries."""
+    new_dict: dict[str, list[str]] = {}
+
+    for column in first_dict:
+        new_dict[column] = []
+        for x in first_dict[column]:
+            new_dict[column].append(x)
+
+    for column in second_dict:
+        if column in new_dict:
+            for x in second_dict[column]:
+                new_dict[column].append(x)
+        else:
+            new_dict[column] = []
+            for x in second_dict[column]:
+                new_dict[column].append(x)
+
+    return new_dict
+
+
+def count(responses: list[str]) -> dict[str, int]:
+    """Count occurrence of objects in a list."""
+    result: dict[str, int] = {}
+
+    for x in responses:
+        if x in result:
+            result[x] += 1
+        else:
+            result[x] = 1
+
+    return result
+
+
+def grouped_exp(prior_exp: list[str]) -> list[str]:
+    """Group prior experience into beginner, intermediate, or advanced."""
+
+    filtered: list[str] = []
+
+    for x in prior_exp:
+        if x == "None to less than one month!" or x == "2-6 months":
+            filtered.append("Beginner")
+        elif x == "7-12 months":
+            filtered.append("Intermediate")
+        else:
+            filtered.append("Advanced")
+
+    return filtered
