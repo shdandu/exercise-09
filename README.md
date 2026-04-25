@@ -1,7 +1,7 @@
 Idea: 
 
 The course should focus more on the fundamentals because most students in the course have very little coding experience and need more explanation. 
-This idea is valuable majority of students are underclassman who don't have experience with hard stem classes, and a majority of students don't have coding experience and may not have experience with hard stem classes. Due to this, it's important to make sure the class moves at a good pace and students are able to keep up.
+This idea is valuable because a majority of students don't have coding experience and may not have experience with hard stem classes. Due to this, it's important to make sure the class moves at a good pace and students are able to keep up.
 
 
 Analysis:
